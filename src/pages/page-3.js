@@ -7,7 +7,7 @@ import SEO from '../components/seo';
 const SecondPage = () => (
   <Layout>
     <SEO title="Page two" />
-    Page2
+    Page3
   </Layout>
 );
 
