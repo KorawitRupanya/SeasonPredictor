@@ -20,10 +20,6 @@ const Graph = props => {
     title: {
       text: 'Temperature',
     },
-    xAxis: {
-      min: 1,
-      startOnTick: false,
-    },
     series: [
       {
         name: 'tempMax',
