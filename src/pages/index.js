@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import Dropdown from '../components/Dropdown';
 import Predictor from '../components/Predictor';
 import Graph from '../components/Graph';
+import Table from '../components/Table';
 
 const PickerStyle = styled.div`
   display: flex;
@@ -29,11 +30,11 @@ const Box1 = styled.div`
 
 const Box2 = styled.div`
   position: relative;
-  margin: 4vh 40vh;
+  margin: 4vh 4vh;
   align-items: center;
   height: 400px;
-  width: 50%;
   display: flex;
+  flex: 1;
   background: #ffffff;
   box-shadow: 0px 4px 16px rgba(0, 128, 0);
   border-radius: 16px;
@@ -81,7 +82,9 @@ const IndexPage = () => (
       <Box1 key="Box">
         <Graph />
       </Box1>
-      <Box2 key="Box">Table</Box2>
+      <Box2 key="Box">
+        <Table />
+      </Box2>
     </BoxAlignment>
   </Layout>
 );

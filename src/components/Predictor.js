@@ -30,7 +30,8 @@ const Predictor = () => (
     <TextInner>Prediction</TextInner>
     <BoxInLine>
       <PredictorStyle>
-        <img src={RainyImg} alt="Rainny Image" /> 20/06
+        <img src={RainyImg} alt="Rainny Image" />
+        <h1 id="sth"></h1>
       </PredictorStyle>
       <PredictorStyle>
         <img src={SnowyImg} alt="Snowy Image" /> 14/08
