@@ -23,7 +23,7 @@ const Box1 = styled.div`
   width: 50%;
   display: flex;
   background: #ffffff;
-  box-shadow: 0px 4px 16px rgba(255, 99, 71);
+  box-shadow: 0px 4px 16px rgba(200, 200, 200);
   border-radius: 16px;
   color: #737373;
   justify-content: space-between;
@@ -37,7 +37,7 @@ const Box2 = styled.div`
   display: flex;
   flex: 1;
   background: #ffffff;
-  box-shadow: 0px 4px 16px rgba(0, 128, 0);
+  box-shadow: 0px 4px 16px rgba(200, 200, 200);
   border-radius: 16px;
   color: #737373;
   justify-content: space-between;
@@ -85,7 +85,7 @@ const IndexPage = () => {
       </PredictorAlignment>
       <BoxAlignment>
         <Box1 key="Box1">
-          <Graph />
+          <Graph year={year} month={month} province={'bangkok'} />
         </Box1>
         <Box2 key="Box2">
           <Table />

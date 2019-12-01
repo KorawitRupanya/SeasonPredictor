@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled-base';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -17,10 +17,36 @@ const options = {
   ],
 };
 
-const Graph = () => (
-  <>
-    <HighchartsReact highcharts={Highcharts} options={options} />
-  </>
-);
+const Graph = props => {
+  const [hasError, setErrors] = useState(false);
+  const [info, setInfo] = useState({});
+  const province = props.province;
+  const year = props.year;
+  const month = props.month;
+  console.log(province, year, month);
+  // if (year !== '' && month != '') `http://localhost:3000/${province}/${year}/${month}`
+
+  async function fetchData() {
+    const res = await fetch(
+      `http://localhost:3000/${province}/${year}/${month}`,
+    );
+    res
+      .json()
+      .then(res => setInfo(res))
+      .catch(err => setErrors(err));
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [year, month, province]);
+
+  console.log(info);
+
+  return (
+    <>
+      <HighchartsReact highcharts={Highcharts} options={options} />
+    </>
+  );
+};
 
 export default Graph;

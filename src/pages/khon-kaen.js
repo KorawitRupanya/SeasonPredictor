@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import Dropdown from '../components/Dropdown';
+import MonthDropdown from '../components/MonthDropdown';
 import Predictor from '../components/Predictor';
 
 const PickerStyle = styled.div`
@@ -62,6 +63,7 @@ const ProvinceAlignment = styled.div`
 
 const KhonKaenPage = () => {
   const [year, setYear] = React.useState('');
+  const [month, setMonth] = React.useState('');
   return (
     <Layout>
       <SEO title="KhonKaen" />
@@ -70,6 +72,7 @@ const KhonKaenPage = () => {
       </ProvinceAlignment>
       <PickerStyle>
         <Dropdown year={year} setYear={setYear} />
+        <MonthDropdown month={month} setMonth={setMonth} />
       </PickerStyle>
       <TextStyle>
         <h2>First Date of Season</h2>

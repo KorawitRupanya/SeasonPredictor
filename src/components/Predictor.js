@@ -11,7 +11,7 @@ const PredictorStyle = styled.div`
   padding-right: 2vw;
   display: flex;
   flex-direction: row;
-  box-shadow: 0px 4px 16px rgba(0, 191, 255);
+  box-shadow: 0px 4px 16px rgba(232, 232, 232);
   border-radius: 16px;
   color: #737373;
   align-items: center;
@@ -27,10 +27,26 @@ const BoxInLine = styled.div`
 
 const Predictor = props => {
   const year = props.year;
+  let sunnyTMD = '';
+  let rainnyTMD = '';
+  let snowyTMD = '';
   console.log('predict', year);
+  if (year == 2018) {
+    sunnyTMD = '03/03';
+    rainnyTMD = '26/05';
+    snowyTMD = '27/10';
+  } else if (year == 2019) {
+    sunnyTMD = '03/03';
+    rainnyTMD = '26/05';
+    snowyTMD = '27/10';
+  } else if (year == 2020) {
+    sunnyTMD = '--/--';
+    rainnyTMD = '--/--';
+    snowyTMD = '--/--';
+  }
   return (
     <>
-      <TextInner>Prediction</TextInner>
+      <TextInner>Forcast</TextInner>
       <BoxInLine>
         <PredictorStyle>
           <img src={SunnyImg} alt="Sunny Image" /> 15/03
@@ -42,7 +58,7 @@ const Predictor = props => {
           <img src={SnowyImg} alt="Snowy Image" /> 14/08
         </PredictorStyle>
       </BoxInLine>
-      <TextInner>Now</TextInner>
+      <TextInner>Actuality</TextInner>
       <BoxInLine>
         <PredictorStyle>
           <img src={SunnyImg} alt="Sunny Image" /> 15/03
@@ -52,6 +68,18 @@ const Predictor = props => {
         </PredictorStyle>
         <PredictorStyle>
           <img src={SnowyImg} alt="Snowy Image" /> 14/08
+        </PredictorStyle>
+      </BoxInLine>
+      <TextInner>TMD</TextInner>
+      <BoxInLine>
+        <PredictorStyle>
+          <img src={SunnyImg} alt="Sunny Image" /> {sunnyTMD}
+        </PredictorStyle>
+        <PredictorStyle>
+          <img src={RainyImg} alt="Rainny Image" /> {rainnyTMD}
+        </PredictorStyle>
+        <PredictorStyle>
+          <img src={SnowyImg} alt="Snowy Image" /> {snowyTMD}
         </PredictorStyle>
       </BoxInLine>
     </>

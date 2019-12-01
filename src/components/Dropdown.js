@@ -55,6 +55,7 @@ const ControlledOpenSelect = props => {
           <MenuItem value={2017}>2017</MenuItem>
           <MenuItem value={2018}>2018</MenuItem>
           <MenuItem value={2019}>2019</MenuItem>
+          <MenuItem value={2020}>2020</MenuItem>
         </Select>
       </FormControl>
     </div>
