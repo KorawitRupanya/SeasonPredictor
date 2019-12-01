@@ -3,7 +3,10 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import Dropdown from '../components/Dropdown';
+import MonthDropdown from '../components/MonthDropdown';
 import Predictor from '../components/Predictor';
+import Graph from '../components/Graph';
+import Table from '../components/Table';
 
 const PickerStyle = styled.div`
   display: flex;
@@ -14,13 +17,13 @@ const PickerStyle = styled.div`
 
 const Box1 = styled.div`
   position: relative;
-  margin: 4vh 40vh;
+  margin: 4vh 5vh;
   align-items: center;
   height: 400px;
   width: 50%;
   display: flex;
   background: #ffffff;
-  box-shadow: 0px 4px 16px rgba(255, 99, 71);
+  box-shadow: 0px 4px 16px rgba(200, 200, 200);
   border-radius: 16px;
   color: #737373;
   justify-content: space-between;
@@ -28,13 +31,13 @@ const Box1 = styled.div`
 
 const Box2 = styled.div`
   position: relative;
-  margin: 4vh 40vh;
+  margin: 4vh 4vh;
   align-items: center;
   height: 400px;
-  width: 50%;
   display: flex;
+  flex: 1;
   background: #ffffff;
-  box-shadow: 0px 4px 16px rgba(0, 128, 0);
+  box-shadow: 0px 4px 16px rgba(200, 200, 200);
   border-radius: 16px;
   color: #737373;
   justify-content: space-between;
@@ -58,18 +61,21 @@ const ProvinceAlignment = styled.div`
   position: relative;
   height: 2vh;
   text-align: center;
+  background-size: 100% auto;
 `;
 
-const KhonKaenPage = () => {
+const IndexPage = () => {
   const [year, setYear] = React.useState('');
+  const [month, setMonth] = React.useState('');
   return (
     <Layout>
-      <SEO title="KhonKaen" />
+      <SEO title="Bangkok" />
       <ProvinceAlignment>
-        <h1>Khon Kaen</h1>
+        <h1>Bangkok</h1>
       </ProvinceAlignment>
       <PickerStyle>
         <Dropdown year={year} setYear={setYear} />
+        <MonthDropdown month={month} setMonth={setMonth} />
       </PickerStyle>
       <TextStyle>
         <h2>First Date of Season</h2>
@@ -78,11 +84,15 @@ const KhonKaenPage = () => {
         <Predictor year={year} />
       </PredictorAlignment>
       <BoxAlignment>
-        <Box1 key="Box1">GrapTemp</Box1>
-        <Box2 key="Box2">Table</Box2>
+        <Box1 key="Box1">
+          <Graph year={year} month={month} province={'khonkaen'} />
+        </Box1>
+        <Box2 key="Box2">
+          <Table year={year} month={month} province={'khonkaen'} />
+        </Box2>
       </BoxAlignment>
     </Layout>
   );
 };
 
-export default KhonKaenPage;
+export default IndexPage;
