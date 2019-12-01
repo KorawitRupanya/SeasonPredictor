@@ -106,6 +106,15 @@ const Predictor = props => {
       .catch(err => setErrors(err));
   }
 
+  useEffect(() => {
+    fetchDataSummer();
+    fetchDataRainy();
+    fetchDataWinter();
+    fetchDataSummerFc();
+    fetchDataRainyFc();
+    fetchDataWinterFc();
+  }, [year, province]);
+
   if (year == 2017) {
     sunnyTMD = '3 March';
     rainnyTMD = '16 May';
@@ -123,15 +132,6 @@ const Predictor = props => {
     rainnyTMD = '-- --';
     snowyTMD = '-- --';
   }
-
-  useEffect(() => {
-    fetchDataSummer();
-    fetchDataRainy();
-    fetchDataWinter();
-    fetchDataSummerFc();
-    fetchDataRainyFc();
-    fetchDataWinterFc();
-  }, [year, province]);
 
   console.log(summer, rainy, winter, summerFc, rainyFc, winterFc);
   return (
