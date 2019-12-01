@@ -39,6 +39,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 700,
   },
 }));
+
 const CustomizedTables = props => {
   const classes = useStyles();
 
@@ -85,6 +86,7 @@ const CustomizedTables = props => {
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
+
             <StyledTableCell align="center">Date</StyledTableCell>
             <StyledTableCell align="center">Sunrise</StyledTableCell>
             <StyledTableCell align="center">Sunset</StyledTableCell>
@@ -113,3 +115,4 @@ const CustomizedTables = props => {
 };
 
 export default CustomizedTables;
+
