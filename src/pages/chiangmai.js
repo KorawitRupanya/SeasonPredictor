@@ -69,9 +69,9 @@ const IndexPage = () => {
   const [month, setMonth] = React.useState('');
   return (
     <Layout>
-      <SEO title="Bangkok" />
+      <SEO title="Chiangmai" />
       <ProvinceAlignment>
-        <h1>Bangkok</h1>
+        <h1>Chiangmai</h1>
       </ProvinceAlignment>
       <PickerStyle>
         <Dropdown year={year} setYear={setYear} />
@@ -81,7 +81,7 @@ const IndexPage = () => {
         <h2>First Date of Season</h2>
       </TextStyle>
       <PredictorAlignment>
-        <Predictor year={year} />
+        <Predictor year={year} province={'chiangmai'} />
       </PredictorAlignment>
       <BoxAlignment>
         <Box1 key="Box1">
