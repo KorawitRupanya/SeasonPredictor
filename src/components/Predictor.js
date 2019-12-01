@@ -25,33 +25,37 @@ const BoxInLine = styled.div`
   display: flex;
 `;
 
-const Predictor = () => (
-  <>
-    <TextInner>Prediction</TextInner>
-    <BoxInLine>
-      <PredictorStyle>
-        <img src={RainyImg} alt="Rainny Image" /> 20/06
-      </PredictorStyle>
-      <PredictorStyle>
-        <img src={SnowyImg} alt="Snowy Image" /> 14/08
-      </PredictorStyle>
-      <PredictorStyle>
-        <img src={SunnyImg} alt="Sunny Image" /> 15/03
-      </PredictorStyle>
-    </BoxInLine>
-    <TextInner>Now</TextInner>
-    <BoxInLine>
-      <PredictorStyle>
-        <img src={RainyImg} alt="Rainny Image" /> 20/06
-      </PredictorStyle>
-      <PredictorStyle>
-        <img src={SnowyImg} alt="Snowy Image" /> 14/08
-      </PredictorStyle>
-      <PredictorStyle>
-        <img src={SunnyImg} alt="Sunny Image" /> 15/03
-      </PredictorStyle>
-    </BoxInLine>
-  </>
-);
+const Predictor = props => {
+  const year = props.year;
+  console.log('predict', year);
+  return (
+    <>
+      <TextInner>Prediction</TextInner>
+      <BoxInLine>
+        <PredictorStyle>
+          <img src={RainyImg} alt="Rainny Image" /> 20/06
+        </PredictorStyle>
+        <PredictorStyle>
+          <img src={SnowyImg} alt="Snowy Image" /> 14/08
+        </PredictorStyle>
+        <PredictorStyle>
+          <img src={SunnyImg} alt="Sunny Image" /> 15/03
+        </PredictorStyle>
+      </BoxInLine>
+      <TextInner>Now</TextInner>
+      <BoxInLine>
+        <PredictorStyle>
+          <img src={RainyImg} alt="Rainny Image" /> 20/06
+        </PredictorStyle>
+        <PredictorStyle>
+          <img src={SnowyImg} alt="Snowy Image" /> 14/08
+        </PredictorStyle>
+        <PredictorStyle>
+          <img src={SunnyImg} alt="Sunny Image" /> 15/03
+        </PredictorStyle>
+      </BoxInLine>
+    </>
+  );
+};
 
 export default Predictor;
