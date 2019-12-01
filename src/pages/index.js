@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import Dropdown from '../components/Dropdown';
+import MonthDropdown from '../components/MonthDropdown';
 import Predictor from '../components/Predictor';
 import Graph from '../components/Graph';
 
@@ -62,28 +63,33 @@ const ProvinceAlignment = styled.div`
   background-size: 100% auto;
 `;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Bangkok" />
-    <ProvinceAlignment>
-      <h1>Bangkok</h1>
-    </ProvinceAlignment>
-    <PickerStyle>
-      <Dropdown />
-    </PickerStyle>
-    <TextStyle>
-      <h2>First Date of Season</h2>
-    </TextStyle>
-    <PredictorAlignment>
-      <Predictor />
-    </PredictorAlignment>
-    <BoxAlignment>
-      <Box1 key="Box">
-        <Graph />
-      </Box1>
-      <Box2 key="Box">Table</Box2>
-    </BoxAlignment>
-  </Layout>
-);
+const IndexPage = () => {
+  const [year, setYear] = React.useState('');
+  const [month, setMonth] = React.useState('');
+  return (
+    <Layout>
+      <SEO title="Bangkok" />
+      <ProvinceAlignment>
+        <h1>Bangkok</h1>
+      </ProvinceAlignment>
+      <PickerStyle>
+        <Dropdown year={year} setYear={setYear} />
+        <MonthDropdown month={month} setMonth={setMonth} />
+      </PickerStyle>
+      <TextStyle>
+        <h2>First Date of Season</h2>
+      </TextStyle>
+      <PredictorAlignment>
+        <Predictor year={year} />
+      </PredictorAlignment>
+      <BoxAlignment>
+        <Box1 key="Box1">
+          <Graph />
+        </Box1>
+        <Box2 key="Box2">Table</Box2>
+      </BoxAlignment>
+    </Layout>
+  );
+};
 
 export default IndexPage;
