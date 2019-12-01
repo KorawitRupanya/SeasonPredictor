@@ -47,7 +47,6 @@ const CustomizedTables = props => {
   const province = props.province;
   const year = props.year;
   const month = props.month;
-  console.log(province, year, month);
 
   async function fetchData() {
     const res = await fetch(
