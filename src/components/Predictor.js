@@ -33,25 +33,25 @@ const Predictor = props => {
       <TextInner>Prediction</TextInner>
       <BoxInLine>
         <PredictorStyle>
+          <img src={SunnyImg} alt="Sunny Image" /> 15/03
+        </PredictorStyle>
+        <PredictorStyle>
           <img src={RainyImg} alt="Rainny Image" /> 20/06
         </PredictorStyle>
         <PredictorStyle>
           <img src={SnowyImg} alt="Snowy Image" /> 14/08
-        </PredictorStyle>
-        <PredictorStyle>
-          <img src={SunnyImg} alt="Sunny Image" /> 15/03
         </PredictorStyle>
       </BoxInLine>
       <TextInner>Now</TextInner>
       <BoxInLine>
         <PredictorStyle>
+          <img src={SunnyImg} alt="Sunny Image" /> 15/03
+        </PredictorStyle>
+        <PredictorStyle>
           <img src={RainyImg} alt="Rainny Image" /> 20/06
         </PredictorStyle>
         <PredictorStyle>
           <img src={SnowyImg} alt="Snowy Image" /> 14/08
-        </PredictorStyle>
-        <PredictorStyle>
-          <img src={SunnyImg} alt="Sunny Image" /> 15/03
         </PredictorStyle>
       </BoxInLine>
     </>
