@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import RainyImg from '../images/rainy-6.svg';
 import SnowyImg from '../images/snowy-6.svg';
 import SunnyImg from '../images/day.svg';
@@ -25,25 +25,56 @@ const BoxInLine = styled.div`
   display: flex;
 `;
 
+let sunnyTMD = '';
+let rainnyTMD = '';
+let snowyTMD = '';
+
 const Predictor = props => {
+  const [hasError, setErrors] = useState(false);
+  const [info, setInfo] = useState({});
+  const province = props.province;
   const year = props.year;
-  let sunnyTMD = '';
-  let rainnyTMD = '';
-  let snowyTMD = '';
-  console.log('predict', year);
-  if (year == 2018) {
-    sunnyTMD = '03/03';
-    rainnyTMD = '26/05';
-    snowyTMD = '27/10';
-  } else if (year == 2019) {
-    sunnyTMD = '03/03';
-    rainnyTMD = '26/05';
-    snowyTMD = '27/10';
-  } else if (year == 2020) {
-    sunnyTMD = '--/--';
-    rainnyTMD = '--/--';
-    snowyTMD = '--/--';
+
+  async function fetchData() {
+    const res = await fetch(`http://localhost:3000/${province}/summer/${year}`);
+    res
+      .json()
+      .then(res => setInfo(res))
+      .catch(err => setErrors(err));
   }
+
+  useEffect(() => {
+    fetchData();
+  }, [year, province]);
+
+  console.log(province + ', ' + year + ', ' + info);
+
+  // sunnyTMD = info[0].date + '/' + info[0].month;
+
+  async function fetchData() {
+    const res = await fetch(`http://localhost:3000/${province}/rainy/${year}`);
+    res
+      .json()
+      .then(res => setInfo(res))
+      .catch(err => setErrors(err));
+  }
+
+  // rainnyTMD = info[0].date + '/' + info[0].month;
+
+  async function fetchData() {
+    const res = await fetch(`http://localhost:3000/${province}/winter/${year}`);
+    res
+      .json()
+      .then(res => setInfo(res))
+      .catch(err => setErrors(err));
+  }
+
+  // snowyTMD = info[0].date + '/' + info[0].month;
+
+  useEffect(() => {
+    fetchData();
+  }, [year, province]);
+
   return (
     <>
       <TextInner>Forcast</TextInner>

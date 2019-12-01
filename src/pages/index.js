@@ -81,7 +81,7 @@ const IndexPage = () => {
         <h2>First Date of Season</h2>
       </TextStyle>
       <PredictorAlignment>
-        <Predictor year={year} />
+        <Predictor year={year} province={'bangkok'} />
       </PredictorAlignment>
       <BoxAlignment>
         <Box1 key="Box1">

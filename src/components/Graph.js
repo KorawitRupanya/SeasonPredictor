@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from '@emotion/styled-base';
-import Highcharts from 'highcharts';
+import Highcharts, { Axis } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 const Graph = props => {
@@ -37,19 +37,6 @@ const Graph = props => {
     ],
   };
 
-  for (let i = 0; i < info.length; i++) {
-    tempMaxArr[i] = info[i].tempMax;
-    tempAvgArr[i] = info[i].tempAvg;
-    tempMinArr[i] = info[i].tempMin;
-  }
-
-  console.log(info[0].tempAvg);
-  console.log(info.length);
-
-  options.series[0].data = tempMaxArr;
-  options.series[1].data = tempAvgArr;
-  options.series[2].data = tempMinArr;
-
   async function fetchData() {
     const res = await fetch(
       `http://localhost:3000/${province}/${year}/${month}`,
@@ -63,6 +50,18 @@ const Graph = props => {
   useEffect(() => {
     fetchData();
   }, [year, month, province]);
+
+  for (let i = 0; i < info.length; i++) {
+    tempMaxArr[i] = info[i].tempMax;
+    tempAvgArr[i] = info[i].tempAvg;
+    tempMinArr[i] = info[i].tempMin;
+  }
+
+  console.log(info.length);
+
+  options.series[0].data = tempMaxArr;
+  options.series[1].data = tempAvgArr;
+  options.series[2].data = tempMinArr;
 
   return (
     <>
