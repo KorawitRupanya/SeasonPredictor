@@ -60,26 +60,29 @@ const ProvinceAlignment = styled.div`
   text-align: center;
 `;
 
-const KhonKaenPage = () => (
-  <Layout>
-    <SEO title="KhonKaen" />
-    <ProvinceAlignment>
-      <h1>Khon Kaen</h1>
-    </ProvinceAlignment>
-    <PickerStyle>
-      <Dropdown />
-    </PickerStyle>
-    <TextStyle>
-      <h2>First Date of Season</h2>
-    </TextStyle>
-    <PredictorAlignment>
-      <Predictor />
-    </PredictorAlignment>
-    <BoxAlignment>
-      <Box1 key="Box">GrapTemp</Box1>
-      <Box2 key="Box">Table</Box2>
-    </BoxAlignment>
-  </Layout>
-);
+const KhonKaenPage = () => {
+  const [year, setYear] = React.useState('');
+  return (
+    <Layout>
+      <SEO title="KhonKaen" />
+      <ProvinceAlignment>
+        <h1>Khon Kaen</h1>
+      </ProvinceAlignment>
+      <PickerStyle>
+        <Dropdown year={year} setYear={setYear} />
+      </PickerStyle>
+      <TextStyle>
+        <h2>First Date of Season</h2>
+      </TextStyle>
+      <PredictorAlignment>
+        <Predictor year={year} />
+      </PredictorAlignment>
+      <BoxAlignment>
+        <Box1 key="Box1">GrapTemp</Box1>
+        <Box2 key="Box2">Table</Box2>
+      </BoxAlignment>
+    </Layout>
+  );
+};
 
 export default KhonKaenPage;

@@ -19,12 +19,12 @@ const useStyles = makeStyles(theme => ({
 
 const ControlledOpenSelect = props => {
   const classes = useStyles();
-  const year = props.year;
-  const setYear = props.setYear;
+  const month = props.month;
+  const setMonth = props.setMonth;
   const [open, setOpen] = React.useState(false);
 
   const handleChange = event => {
-    setYear(event.target.value);
+    setMonth(event.target.value);
   };
 
   const handleClose = () => {
@@ -39,22 +39,31 @@ const ControlledOpenSelect = props => {
     <div>
       <Button className={classes.button} onClick={handleOpen}></Button>
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">Year</InputLabel>
+        <InputLabel id="demo-controlled-open-select-label">Month</InputLabel>
         <Select
           labelId="demo-controlled-open-select-label"
           id="demo-controlled-open-select"
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={year}
+          value={month}
           onChange={handleChange}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={2017}>2017</MenuItem>
-          <MenuItem value={2018}>2018</MenuItem>
-          <MenuItem value={2019}>2019</MenuItem>
+          <MenuItem value={'January'}>January</MenuItem>
+          <MenuItem value={'February'}>February</MenuItem>
+          <MenuItem value={'March'}>March</MenuItem>
+          <MenuItem value={'April'}>April</MenuItem>
+          <MenuItem value={'May'}>May</MenuItem>
+          <MenuItem value={'June'}>June</MenuItem>
+          <MenuItem value={'July'}>July</MenuItem>
+          <MenuItem value={'August'}>August</MenuItem>
+          <MenuItem value={'September'}>September</MenuItem>
+          <MenuItem value={'October'}>October</MenuItem>
+          <MenuItem value={'November'}>November</MenuItem>
+          <MenuItem value={'December'}>December</MenuItem>
         </Select>
       </FormControl>
     </div>
