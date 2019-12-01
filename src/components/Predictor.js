@@ -25,6 +25,10 @@ const BoxInLine = styled.div`
   display: flex;
 `;
 
+let sunnyFC = '';
+let rainnyFC = '';
+let snowyFC = '';
+
 let sunnyTMD = '';
 let rainnyTMD = '';
 let snowyTMD = '';
@@ -34,8 +38,24 @@ const Predictor = props => {
   const [info, setInfo] = useState({});
   const province = props.province;
   const year = props.year;
+  const forcastDate = [];
+  const actualDate = [];
 
-  async function fetchData() {
+  if (year == 2018) {
+    sunnyTMD = '3 March';
+    rainnyTMD = '26 May';
+    snowyTMD = '27 October';
+  } else if (year == 2019) {
+    sunnyTMD = '21 February';
+    rainnyTMD = '26 May';
+    snowyTMD = '27 October';
+  } else if (year == 2020) {
+    sunnyTMD = '-- --';
+    rainnyTMD = '-- --';
+    snowyTMD = '-- --';
+  }
+
+  async function fetchData1() {
     const res = await fetch(`http://localhost:3000/${province}/summer/${year}`);
     res
       .json()
@@ -44,14 +64,14 @@ const Predictor = props => {
   }
 
   useEffect(() => {
-    fetchData();
+    fetchData1();
   }, [year, province]);
 
-  console.log(province + ', ' + year + ', ' + info);
+  console.log('date' + info[0].month);
+  sunnyFC = info[0].date + ' ' + info[0].month;
+  forcastDate[0] = sunnyFC;
 
-  // sunnyTMD = info[0].date + '/' + info[0].month;
-
-  async function fetchData() {
+  async function fetchData2() {
     const res = await fetch(`http://localhost:3000/${province}/rainy/${year}`);
     res
       .json()
@@ -59,9 +79,13 @@ const Predictor = props => {
       .catch(err => setErrors(err));
   }
 
-  // rainnyTMD = info[0].date + '/' + info[0].month;
+  useEffect(() => {
+    fetchData2();
+  }, [year, province]);
 
-  async function fetchData() {
+  forcastDate[1] = info[0].date + ' ' + info[0].month;
+
+  async function fetchData3() {
     const res = await fetch(`http://localhost:3000/${province}/winter/${year}`);
     res
       .json()
@@ -69,10 +93,10 @@ const Predictor = props => {
       .catch(err => setErrors(err));
   }
 
-  // snowyTMD = info[0].date + '/' + info[0].month;
+  forcastDate[2] = info[0].date + ' ' + info[0].month;
 
   useEffect(() => {
-    fetchData();
+    fetchData3();
   }, [year, province]);
 
   return (
@@ -80,13 +104,13 @@ const Predictor = props => {
       <TextInner>Forcast</TextInner>
       <BoxInLine>
         <PredictorStyle>
-          <img src={SunnyImg} alt="Sunny Image" /> 15/03
+          <img src={SunnyImg} alt="Sunny Image" /> {forcastDate[0]}
         </PredictorStyle>
         <PredictorStyle>
-          <img src={RainyImg} alt="Rainny Image" /> 20/06
+          <img src={RainyImg} alt="Rainny Image" /> {forcastDate[1]}
         </PredictorStyle>
         <PredictorStyle>
-          <img src={SnowyImg} alt="Snowy Image" /> 14/08
+          <img src={SnowyImg} alt="Snowy Image" /> {forcastDate[2]}
         </PredictorStyle>
       </BoxInLine>
       <TextInner>Actuality</TextInner>
