@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
-const cors = require('cors');
 
 const connection = mysql.createConnection({
   host: '158.108.34.31',
@@ -11,11 +10,6 @@ const connection = mysql.createConnection({
 });
 
 const app = express();
-
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  next();
-});
 
 app.get('/bangkok/2017/January', function(req, res) {
   connection.query(
@@ -377,26 +371,7 @@ app.get('/bangkok/2019/December', function(req, res) {
   );
 });
 
-// var allowCrossDomain = function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
-// };
-
-// app.configure(function() {
-//   app.use(allowCrossDomain);
-//   //some other code
-// });
-
 // Start the server
 app.listen(3000, () => {
   console.log('Go to http://localhost:3000/bangkok/2017/January to see posts');
 });
-
-// var allowCrossDomain = function(req, res, next) {
-//   res.header('Access-Control-Allow-Origin', "*");
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
-// };

@@ -88,7 +88,7 @@ const IndexPage = () => {
           <Graph year={year} month={month} province={'bangkok'} />
         </Box1>
         <Box2 key="Box2">
-          <Table />
+          <Table year={year} month={month} province={'bangkok'} />
         </Box2>
       </BoxAlignment>
     </Layout>

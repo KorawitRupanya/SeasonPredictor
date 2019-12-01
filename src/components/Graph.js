@@ -12,7 +12,6 @@ const Graph = props => {
   const tempMaxArr = [];
   const tempAvgArr = [];
   const tempMinArr = [];
-  console.log(province, year, month);
 
   const options = {
     chart: {
@@ -24,15 +23,15 @@ const Graph = props => {
     series: [
       {
         name: 'tempMax',
-        data: [1, 2, 1, 4, 3, 6],
+        data: [],
       },
       {
         name: 'tempAvg',
-        data: [3, 3, 3, 4, 3, 6],
+        data: [],
       },
       {
         name: 'tempMin',
-        data: [4, 4, 4, 4, 4, 4],
+        data: [],
       },
     ],
   };
