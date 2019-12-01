@@ -4,7 +4,6 @@ import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import Dropdown from '../components/Dropdown';
 import Predictor from '../components/Predictor';
-import BangkokImg from '../images/chiang-mai-to-bangkok.jpg';
 
 const PickerStyle = styled.div`
   display: flex;
@@ -56,17 +55,14 @@ const PredictorAlignment = styled.div`
 `;
 
 const ProvinceAlignment = styled.div`
-  position: relative;
-  height: 2vh;
   text-align: center;
-  background-image: url('../images/chiang-mai-to-bangkok.jpg');
 `;
 
-const IndexPage = () => (
+const ChiangmaiPage = () => (
   <Layout>
-    <SEO title="Bangkok" />
+    <SEO title="Chiangmai" />
     <ProvinceAlignment>
-      <h1>Bangkok</h1>
+      <h1>Chiangmai</h1>
     </ProvinceAlignment>
     <PickerStyle>
       <Dropdown />
@@ -84,4 +80,4 @@ const IndexPage = () => (
   </Layout>
 );
 
-export default IndexPage;
+export default ChiangmaiPage;

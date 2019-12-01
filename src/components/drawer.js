@@ -36,9 +36,9 @@ const Item = styled(Link)`
 `;
 
 const items = [
-  { url: '/', name: 'Temperature' },
-  { url: '/page-2/', name: 'Sunrise Time' },
-  { url: '/page-3/', name: 'Season' },
+  { url: '/', name: 'Bangkok' },
+  { url: '/khon-kaen/', name: 'Khon Kaen' },
+  { url: '/chiangmai/', name: 'Chiangmai' },
 ];
 
 const Drawer = ({ isDrawerOpen, toggleDrawer }) => (

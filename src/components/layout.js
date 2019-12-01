@@ -12,8 +12,8 @@ import Drawer from './drawer';
 import './layout.css';
 
 const Container = styled.main`
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  display: flex;
 `;
 
 const Content = styled.section`
