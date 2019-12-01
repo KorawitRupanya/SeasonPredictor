@@ -55,6 +55,8 @@ const PredictorAlignment = styled.div`
 `;
 
 const ProvinceAlignment = styled.div`
+  position: relative;
+  height: 2vh;
   text-align: center;
 `;
 

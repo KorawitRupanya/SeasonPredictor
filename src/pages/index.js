@@ -4,7 +4,7 @@ import SEO from '../components/seo';
 import styled from '@emotion/styled';
 import Dropdown from '../components/Dropdown';
 import Predictor from '../components/Predictor';
-import BangkokImg from '../images/chiang-mai-to-bangkok.jpg';
+import Graph from '../components/Graph';
 
 const PickerStyle = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const PickerStyle = styled.div`
 
 const Box1 = styled.div`
   position: relative;
-  margin: 4vh 40vh;
+  margin: 4vh 5vh;
   align-items: center;
   height: 400px;
   width: 50%;
@@ -59,7 +59,7 @@ const ProvinceAlignment = styled.div`
   position: relative;
   height: 2vh;
   text-align: center;
-  background-image: url('../images/chiang-mai-to-bangkok.jpg');
+  background-size: 100% auto;
 `;
 
 const IndexPage = () => (
@@ -78,7 +78,9 @@ const IndexPage = () => (
       <Predictor />
     </PredictorAlignment>
     <BoxAlignment>
-      <Box1 key="Box">GrapTemp</Box1>
+      <Box1 key="Box">
+        <Graph />
+      </Box1>
       <Box2 key="Box">Table</Box2>
     </BoxAlignment>
   </Layout>

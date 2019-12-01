@@ -1,18 +1,26 @@
 import React from 'react';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import 'react-day-picker/lib/style.css';
 import styled from '@emotion/styled-base';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
-const Graph = styled.span`
-  align-items: center;
-  margin: auto;
-  width: 100 px;
-  height: 100 px;
-  color: rgb(252, 186, 3);
-`;
-
-const Graph = () => {
-  return <Graph>Hello</Graph>;
+const options = {
+  chart: {
+    type: 'spline',
+  },
+  title: {
+    text: 'Temperature',
+  },
+  series: [
+    {
+      data: [1, 2, 1, 4, 3, 6],
+    },
+  ],
 };
+
+const Graph = () => (
+  <>
+    <HighchartsReact highcharts={Highcharts} options={options} />
+  </>
+);
 
 export default Graph;
