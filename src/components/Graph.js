@@ -24,7 +24,6 @@ const Graph = props => {
   const year = props.year;
   const month = props.month;
   console.log(province, year, month);
-  // if (year !== '' && month != '') `http://localhost:3000/${province}/${year}/${month}`
 
   async function fetchData() {
     const res = await fetch(

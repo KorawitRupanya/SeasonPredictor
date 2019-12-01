@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -24,26 +24,10 @@ const StyledTableRow = withStyles(theme => ({
     },
   },
 }))(TableRow);
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
+function createData(date, sunrise, sunset, lengthd, difference) {
+  return { date, sunrise, sunset, lengthd, difference };
+}
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,37 +39,78 @@ const useStyles = makeStyles(theme => ({
     minWidth: 700,
   },
 }));
-export default function CustomizedTables() {
+const CustomizedTables = props => {
   const classes = useStyles();
+
+  const [hasError, setErrors] = useState(false);
+  const [table, setTable] = useState([]);
+  const province = props.province;
+  const year = props.year;
+  const month = props.month;
+  console.log(province, year, month);
+
+  async function fetchData() {
+    const res = await fetch(
+      `http://localhost:3000/${province}/${year}/${month}/sun`,
+    );
+    res
+      .json()
+      .then(res => {
+        let tableArray = [];
+        for (let i = 0; i < res.length; i++) {
+          let temp = res[i];
+          tableArray.push(
+            createData(
+              temp.date,
+              temp.sunrise,
+              temp.sunset,
+              temp.length,
+              temp.difference,
+            ),
+          );
+        }
+        setTable(tableArray);
+      })
+      .catch(err => {
+        setErrors(err);
+        setTable([]);
+      });
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [year, month, province]);
 
   return (
     <Paper className={classes.root}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="center">
-              Dessert (100g serving)
-            </StyledTableCell>
-            <StyledTableCell align="center">Calories</StyledTableCell>
-            <StyledTableCell align="center">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="center">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="center">Protein&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="center">Date</StyledTableCell>
+            <StyledTableCell align="center">Sunrise</StyledTableCell>
+            <StyledTableCell align="center">Sunset</StyledTableCell>
+            <StyledTableCell align="center">Length</StyledTableCell>
+            <StyledTableCell align="center">Difference</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <StyledTableRow key={row.name}>
+          {table.map(table => (
+            <StyledTableRow key={table.date}>
               <StyledTableCell align="center" component="th" scope="row">
-                {row.name}
+                {table.date}
               </StyledTableCell>
-              <StyledTableCell align="center">{row.calories}</StyledTableCell>
-              <StyledTableCell align="center">{row.fat}</StyledTableCell>
-              <StyledTableCell align="center">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="center">{row.protein}</StyledTableCell>
+              <StyledTableCell align="center">{table.sunrise}</StyledTableCell>
+              <StyledTableCell align="center">{table.sunset}</StyledTableCell>
+              <StyledTableCell align="center">{table.lengthd}</StyledTableCell>
+              <StyledTableCell align="center">
+                {table.difference}
+              </StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
     </Paper>
   );
-}
+};
+
+export default CustomizedTables;

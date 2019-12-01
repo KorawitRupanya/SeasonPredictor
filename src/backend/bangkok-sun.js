@@ -372,8 +372,8 @@ app.get('/bangkok/2019/December/sun', function(req, res) {
 });
 
 // Start the server
-app.listen(3000, () => {
-  console.log(
-    'Go to http://localhost:3000/bangkok/2017/January/sun to see posts',
-  );
-});
+// app.listen(3000, () => {
+//   console.log(
+//     'Go to http://localhost:3000/bangkok/2017/January/sun to see posts',
+//   );
+// });
