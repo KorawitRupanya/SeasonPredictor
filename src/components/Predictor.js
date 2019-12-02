@@ -25,9 +25,9 @@ const BoxInLine = styled.div`
   display: flex;
 `;
 
-let sunnyTMD = '';
-let rainnyTMD = '';
-let snowyTMD = '';
+let sunnyTMD = '-- --';
+let rainnyTMD = '-- --';
+let snowyTMD = '-- --';
 
 const Predictor = props => {
   const [hasError, setErrors] = useState(false);
@@ -49,7 +49,10 @@ const Predictor = props => {
       .then(res => {
         setSummerFc(res[0].date + ' ' + res[0].month);
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err);
+        setSummerFc('-- --');
+      });
   }
 
   async function fetchDataRainyFc() {
@@ -61,7 +64,10 @@ const Predictor = props => {
       .then(res => {
         setRainyFc(res[0].date + ' ' + res[0].month);
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err);
+        setRainyFc('-- --');
+      });
   }
 
   async function fetchDataWinterFc() {
@@ -73,7 +79,10 @@ const Predictor = props => {
       .then(res => {
         setWinterFc(res[0].date + ' ' + res[0].month);
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err);
+        setWinterFc('-- --');
+      });
   }
 
   async function fetchDataSummer() {
@@ -83,7 +92,10 @@ const Predictor = props => {
       .then(res => {
         setSummer(res[0].date + ' ' + res[0].month);
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err);
+        setSummer('-- --');
+      });
   }
 
   async function fetchDataRainy() {
@@ -93,7 +105,10 @@ const Predictor = props => {
       .then(res => {
         setRainy(res[0].date + ' ' + res[0].month);
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err);
+        setRainy('-- --');
+      });
   }
 
   async function fetchDataWinter() {
@@ -103,7 +118,10 @@ const Predictor = props => {
       .then(res => {
         setWinter(res[0].date + ' ' + res[0].month);
       })
-      .catch(err => setErrors(err));
+      .catch(err => {
+        setErrors(err);
+        setWinter('-- --');
+      });
   }
 
   useEffect(() => {
