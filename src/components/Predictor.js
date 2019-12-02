@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 
 const PredictorStyle = styled.div`
   position: relative;
-  margin-left: 15vw;
+  margin-left: 8vw;
   margin-top: 2vh;
   padding-right: 2vw;
   display: flex;
@@ -15,6 +15,9 @@ const PredictorStyle = styled.div`
   border-radius: 16px;
   color: #737373;
   align-items: center;
+  text-align: center;
+  width: 15vw;
+  height: 5vw;
 `;
 
 const TextInner = styled.div`
