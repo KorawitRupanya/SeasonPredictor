@@ -6,12 +6,12 @@ import HighchartsReact from 'highcharts-react-official';
 const Graph = props => {
   const [hasError, setErrors] = useState(false);
   const [info, setInfo] = useState({});
+  const [tempMaxArr, settempMax] = useState([]);
+  const [tempAvgArr, settempAvg] = useState([]);
+  const [tempMinArr, settempMin] = useState([]);
   const province = props.province;
   const year = props.year;
   const month = props.month;
-  const tempMaxArr = [];
-  const tempAvgArr = [];
-  const tempMinArr = [];
 
   const options = {
     chart: {
@@ -42,25 +42,36 @@ const Graph = props => {
     );
     res
       .json()
-      .then(res => setInfo(res))
-      .catch(err => setErrors(err));
+      .then(res => {
+        setInfo(res);
+        let tempMax2 = [];
+        let tempAvg2 = [];
+        let tempMin2 = [];
+
+        for (let i = 0; i < res.length; i++) {
+          tempMax2[i] = res[i].tempMax;
+          tempAvg2[i] = res[i].tempAvg;
+          tempMin2[i] = res[i].tempMin;
+        }
+        settempMax(tempMax2);
+        settempAvg(tempAvg2);
+        settempMin(tempMin2);
+      })
+      .catch(err => {
+        setErrors(err);
+        settempMax([]);
+        settempAvg([]);
+        settempMin([]);
+      });
   }
-
-  useEffect(() => {
-    fetchData();
-  }, [year, month, province]);
-
-  for (let i = 0; i < info.length; i++) {
-    tempMaxArr[i] = info[i].tempMax;
-    tempAvgArr[i] = info[i].tempAvg;
-    tempMinArr[i] = info[i].tempMin;
-  }
-
-  console.log(info.length);
 
   options.series[0].data = tempMaxArr;
   options.series[1].data = tempAvgArr;
   options.series[2].data = tempMinArr;
+
+  useEffect(() => {
+    fetchData();
+  }, [year, month, province]);
 
   return (
     <>
