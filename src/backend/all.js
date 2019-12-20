@@ -6,9 +6,9 @@ const bkkSun = require('./bangkok-sun');
 
 const connection = mysql.createConnection({
   host: '158.108.34.31',
-  user: 'b6010546915',
-  password: 'sirarat.t@ku.th',
-  database: 'b6010546915',
+  user: 'your_db_user',
+  password: 'your_db_pass',
+  database: 'your_db_name',
 });
 
 const app = express();
