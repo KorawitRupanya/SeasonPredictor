@@ -14,7 +14,7 @@ What things you need to install the software and how to install them
 1. [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 1. [Git](https://git-scm.com/downloads)
 1. [phpMyAdmin](https://158.108.34.31/pma/) with all tables in [database_table](https://github.com/KorawitRupanya/SeasonPredictor/tree/master/database_table) folder
-1. Change the required information to connect to your database [here](https://github.com/KorawitRupanya/SeasonPredictor/blob/33e7578c3f5c8d27a51a4ec59066e210f89d8988/src/backend/all.js#L9-L11)
+1. Change the required information to connect to your database [here](https://github.com/KorawitRupanya/SeasonPredictor/blob/master/src/backend/all.js#L9-L11)
 
 ### Installing
 
