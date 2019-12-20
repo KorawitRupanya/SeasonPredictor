@@ -18,7 +18,7 @@ const Graph = props => {
       type: 'spline',
     },
     title: {
-      text: 'Temperature',
+      text: 'Temperature(°F)',
     },
     series: [
       {
