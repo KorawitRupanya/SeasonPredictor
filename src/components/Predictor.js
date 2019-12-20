@@ -157,7 +157,7 @@ const Predictor = props => {
   console.log(summer, rainy, winter, summerFc, rainyFc, winterFc);
   return (
     <>
-      <TextInner>Forcast</TextInner>
+      <TextInner>Forecast</TextInner>
       <BoxInLine>
         <PredictorStyle>
           <img src={SunnyImg} alt="Sunny Image" /> {summerFc}
