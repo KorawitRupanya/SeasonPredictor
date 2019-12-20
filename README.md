@@ -4,7 +4,7 @@ Analyzing daily temperature of our hometown and predict which day of season will
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -13,8 +13,8 @@ What things you need to install the software and how to install them
 1. [Node.js](https://nodejs.org/en/download/)
 1. [NPM](https://www.npmjs.com/get-npm) or [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 1. [Git](https://git-scm.com/downloads)
-1. [phpMyAdmin](https://158.108.34.31/pma/) with all tables in database_table folder
-1. Change the required information to connect to your database here
+1. [phpMyAdmin](https://158.108.34.31/pma/) with all tables in [database_table](https://github.com/KorawitRupanya/SeasonPredictor/tree/master/database_table) folder
+1. Change the required information to connect to your database [here](https://github.com/KorawitRupanya/SeasonPredictor/blob/33e7578c3f5c8d27a51a4ec59066e210f89d8988/src/backend/all.js#L9-L11)
 
 ### Installing
 
